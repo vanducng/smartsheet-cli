@@ -1,0 +1,62 @@
+{
+  "name": "@vanducng/smartsheet-cli",
+  "version": "0.1.0",
+  "description": "Agent-friendly CLI for reading and writing Smartsheet data",
+  "type": "module",
+  "bin": {
+    "smartsheet": "bin/smartsheet.js"
+  },
+  "files": [
+    "bin",
+    "docs",
+    "skills",
+    "AGENTS.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node22 --format=esm --outfile=bin/smartsheet.js --banner:js=\"#!/usr/bin/env node\" --packages=external",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:package": "npm run build && node scripts/smoke-package.mjs",
+    "test:live": "npm run build && node --env-file=.env scripts/live-smoke.mjs",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write package.json tsconfig.json release-please-config.json .release-please-manifest.json .github src scripts README.md AGENTS.md docs skills",
+    "format:check": "prettier --check package.json tsconfig.json release-please-config.json .release-please-manifest.json .github src scripts README.md AGENTS.md docs skills",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "smartsheet",
+    "cli",
+    "automation",
+    "ai-agents"
+  ],
+  "author": "Duc Nguyen <me@vanducng.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanducng/smartsheet-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vanducng/smartsheet-cli/issues"
+  },
+  "homepage": "https://github.com/vanducng/smartsheet-cli#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "axios": "1.18.1",
+    "commander": "^15.0.0",
+    "smartsheet": "5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.1",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
