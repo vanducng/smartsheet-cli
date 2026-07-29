@@ -24,10 +24,9 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Review pull request
-        uses: vanducng/miu-cr@1c200f114830ae84dc0a92af57f32b61ee0ae07c
+        uses: vanducng/miu-cr@main
         with:
           api-key: ${{ secrets.ZAI_API_KEY }}
           base-url: https://api.z.ai/api/anthropic
           model: glm-5.2
-          version: v0.89.4
           gate: high
