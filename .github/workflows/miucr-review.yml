@@ -1,0 +1,33 @@
+name: miucr review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: miucr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    name: miucr review
+    if: >-
+      github.event.pull_request.head.repo.fork != true &&
+      github.event.pull_request.draft != true &&
+      !startsWith(github.head_ref, 'release-please--') &&
+      !startsWith(github.event.pull_request.title, 'chore(main): release ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Review pull request
+        uses: vanducng/miu-cr@1c200f114830ae84dc0a92af57f32b61ee0ae07c
+        with:
+          api-key: ${{ secrets.ZAI_API_KEY }}
+          base-url: https://api.z.ai/api/anthropic
+          model: glm-5.2
+          version: v0.89.4
+          gate: high
