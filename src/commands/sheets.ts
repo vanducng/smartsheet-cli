@@ -1,6 +1,6 @@
 import type { Command } from "commander";
 import { CliFailure, outputJson, reportError } from "../core/cli-response.js";
-import { getSmartsheetClient } from "../providers/smartsheet/client.js";
+import { getSmartsheetClient } from "../smartsheet.js";
 
 interface PageOptions {
   page: string;

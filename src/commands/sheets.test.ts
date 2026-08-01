@@ -8,7 +8,7 @@ const { getSmartsheetClient, listSheets, getSheet } = vi.hoisted(() => ({
   getSheet: vi.fn(),
 }));
 
-vi.mock("../providers/smartsheet/client.js", () => ({ getSmartsheetClient }));
+vi.mock("../smartsheet.js", () => ({ getSmartsheetClient }));
 
 afterEach(() => {
   process.exitCode = undefined;

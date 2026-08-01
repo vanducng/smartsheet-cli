@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { CliFailure } from "../../core/cli-response.js";
-import { getSmartsheetClient } from "./client.js";
+import { CliFailure } from "./core/cli-response.js";
+import { getSmartsheetClient } from "./smartsheet.js";
 
 const { axiosCreate, axiosIsAxiosError, createClient, request } = vi.hoisted(
   () => ({
