@@ -1,6 +1,6 @@
 import axios, { type AxiosRequestConfig } from "axios";
 import smartsheet, { type SmartsheetClient } from "smartsheet";
-import { CliFailure } from "../../core/cli-response.js";
+import { CliFailure } from "./core/cli-response.js";
 
 interface RequestOptions {
   url?: string;

@@ -11,7 +11,7 @@ const { getSmartsheetClient, addRows, updateRow } = vi.hoisted(() => ({
   updateRow: vi.fn(),
 }));
 
-vi.mock("../providers/smartsheet/client.js", () => ({ getSmartsheetClient }));
+vi.mock("../smartsheet.js", () => ({ getSmartsheetClient }));
 
 const directories: string[] = [];
 

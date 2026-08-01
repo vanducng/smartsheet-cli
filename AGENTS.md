@@ -8,7 +8,7 @@ This repository builds the `@vanducng/smartsheet-cli` package and the `smartshee
 
 - `src/commands/` - Commander command registration and validation
 - `src/core/` - JSON argument and response contracts
-- `src/providers/smartsheet/` - official SDK configuration
+- `src/smartsheet.ts` - official SDK configuration
 - `scripts/` - isolated package and authorized live smoke tests
 - `docs/` - durable agent operating guidance
 - `skills/` - packaged agent skill
@@ -17,7 +17,7 @@ This repository builds the `@vanducng/smartsheet-cli` package and the `smartshee
 ## Development contract
 
 - Require Node.js 22.12 or newer and use `npm ci` for reproducible installs.
-- Keep the Smartsheet SDK behind `src/providers/smartsheet/` and pin it exactly.
+- Keep the Smartsheet SDK behind `src/smartsheet.ts` and pin it exactly.
 - Validate every argument before a provider request.
 - Keep data-command stdout to one JSON value and failures to one redacted JSON value on stderr.
 - Keep reads bounded and writes sequential, with no automatic write retry.

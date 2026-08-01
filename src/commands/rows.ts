@@ -5,7 +5,7 @@ import {
   reportWriteError,
 } from "../core/cli-response.js";
 import { loadJsonArg } from "../core/json-arg.js";
-import { getSmartsheetClient } from "../providers/smartsheet/client.js";
+import { getSmartsheetClient } from "../smartsheet.js";
 
 interface WriteOptions {
   input: string;
